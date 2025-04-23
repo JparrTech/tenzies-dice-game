@@ -32,7 +32,7 @@ div#root {
 }
 
 main {
-  background-color: #ffffff;
+  background-color: #F5F5F5;
   border-radius: 10px;
   height: 100%;
   color: #4A4E74;
@@ -41,7 +41,8 @@ main {
   align-items: center;
   flex-direction: column;
 }
-button{
+
+button {
   cursor: pointer;
   font-family: Inter;
 }
@@ -49,29 +50,39 @@ button{
 .all-dice-container {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
-  grid-template-rows: repeat(2, 1fr); 
+  grid-template-columns: repeat(5, 1fr);
+  /* Creates 5 equal columns */
+  grid-template-rows: repeat(2, 1fr);
   gap: 10px;
   padding: 10px;
-} 
-.all-dice-container button:hover{
-  background-color: #59E391;
-  border-radius: 6px;
 }
+
+.all-dice-container button:hover {
+  background-color: #59E391;
+  border-radius: 3.813px;
+}
+
+.all-dice-container button.held-die {
+  background-color: #59E391;
+}
+
 .all-dice-container button {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   width: 40px;
   height: 40px;
   gap: 10px;
   display: flex;
+  border: none;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
   border-radius: 3.813px;
   color: #2B283A;
   font-family: Inter;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 
@@ -97,16 +108,18 @@ p.game-description {
   padding: 10px;
   padding-top: 0;
 }
-button.roll{
+
+button.roll {
   background-color: #5035FF;
-  border-radius: 3.813px ;
+  border-radius: 3.813px;
   color: #ffffff;
+  border: none;
   height: 35px;
   width: 70px;
-  border: none;
   font-size: 1.2rem;
 }
-button.roll:hover{
+
+button.roll:hover {
   background-color: #3621c2;
 
 }

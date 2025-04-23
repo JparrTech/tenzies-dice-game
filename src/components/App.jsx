@@ -12,7 +12,9 @@ export default function App() {
 
   const [die, setDice] = useState(generateAllNewDice)
 
-
+  function rollDice (){
+    setDice(generateAllNewDice)
+  }
   const dieComponents = die.map(dieVal => (
     <Die value = {dieVal} />
   ))
@@ -26,7 +28,7 @@ export default function App() {
         <div className="all-dice-container">
           {dieComponents}
         </div>
-        <button className= "roll" onClick = {()=> setDice(generateAllNewDice)}> Roll </button>
+        <button className= "roll" onClick = {rollDice}> Roll </button>
       </main>
     </>
   )

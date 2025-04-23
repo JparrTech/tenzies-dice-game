@@ -41,6 +41,10 @@ main {
   align-items: center;
   flex-direction: column;
 }
+button{
+  cursor: pointer;
+  font-family: Inter;
+}
 
 .all-dice-container {
   display: grid;
@@ -97,8 +101,10 @@ button.roll{
   background-color: #5035FF;
   border-radius: 3.813px ;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
+  height: 35px;
+  width: 70px;
+  border: none;
+  font-size: 1.2rem;
 }
 button.roll:hover{
   background-color: #3621c2;

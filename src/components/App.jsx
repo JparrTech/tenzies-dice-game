@@ -4,29 +4,43 @@ import { nanoid } from "nanoid"
 
 export default function App() {
   const [die, setDice] = useState(generateAllNewDice)
+  
+  // generates a number 1-6 inclusive. 
+  function generateRandRoll(){
+    return Math.floor(Math.random() * 6) + 1
+  }
 
   function generateAllNewDice() {
     let initDice = []
-
     for (let i = 0; i < 10; i++) {
       initDice.push({
-        value: Math.floor(Math.random() * 6) + 1,
-        isHeld: true,
+        value: generateRandRoll(),
+        isHeld: false,
         id: nanoid()
       })
     }
-
     return initDice
   }
+
   function hold(id) {
-    console.log(id)
+    setDice(prevDice => prevDice.map(die => {
+      return die.id === id ? {...die, isHeld: !die.isHeld} : die
+    }
+    ))
   }
 
   function rollDice() {
-    setDice(generateAllNewDice)
+    setDice(prevDice => prevDice.map(die => {
+      return die.isHeld ? die : {...die, value: generateRandRoll()}
+    }))
   }
+
   const dieComponents = die.map(dieObj => (
-    <Die value={dieObj.value} isHeld={dieObj.isHeld} key={dieObj.id} hold={hold} id={dieObj.id} />
+    <Die value={dieObj.value}
+      isHeld={dieObj.isHeld}
+      key={dieObj.id}
+      hold={hold}
+      id={dieObj.id} />
   ))
 
   return (

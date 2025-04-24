@@ -4,16 +4,20 @@ import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 
 export default function App() {
-  const [dice, setDice] = useState(generateAllNewDice)
+  // Lazy Initialization 
+  const [dice, setDice] = useState(() => generateAllNewDice())
+
   //Determine if a game is won if all dice are held and all dice have the same value. 
   const gameWon = dice.every(die => die.isHeld) &&
     dice.every(die => die.value === dice[0].value)
+    
   // generates a number 1-6 inclusive. 
   function generateRandRoll() {
     return Math.floor(Math.random() * 6) + 1
   }
 
   function generateAllNewDice() {
+    console.log("ran gen new dice")
     let initDice = []
     for (let i = 0; i < 10; i++) {
       initDice.push({
@@ -61,7 +65,7 @@ export default function App() {
         </button>
       </main>
 
-      
+
       {gameWon ?
         <Confetti />
         : null}

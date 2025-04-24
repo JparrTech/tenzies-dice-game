@@ -56,7 +56,10 @@ export default function App() {
   return (
     <>
       <main>
-        <h2 className="game-title" > Tenzies </h2>
+        <div aria-live = "polite" className="sr-only">
+          {gameWon && <p> Congratulations you won!</p>}
+        </div>
+        <h2 className="game-title"> Tenzies </h2>
         <p className="game-description">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
         {/* Rendering 10 Dice */}
         <div className="all-dice-container">

@@ -8,4 +8,8 @@ Tenzies Webapp using React is a project who's purpose is to reinforce the React 
 * Leaned the use of Lazy Initializers in React to eliminate unnecessary function calls in state declaration. 
 * Knowing useEffect is needed and when it isn't - (it can be easy to overuse it).
 * Conditional styling based on state. 
-* More use of event listeners, more mapping through arrays of objects, more practice with CSS. 
+* More use of event listeners, more mapping through arrays of objects, more practice with CSS.
+  
+
+https://github.com/user-attachments/assets/e128989e-6353-47d2-a140-ef171b74b06a
+

@@ -10,14 +10,13 @@ export default function App() {
   //Determine if a game is won if all dice are held and all dice have the same value. 
   const gameWon = dice.every(die => die.isHeld) &&
     dice.every(die => die.value === dice[0].value)
-    
+
   // generates a number 1-6 inclusive. 
   function generateRandRoll() {
     return Math.floor(Math.random() * 6) + 1
   }
 
   function generateAllNewDice() {
-    console.log("ran gen new dice")
     let initDice = []
     for (let i = 0; i < 10; i++) {
       initDice.push({
@@ -37,9 +36,13 @@ export default function App() {
   }
 
   function rollDice() {
-    setDice(prevDice => prevDice.map(die => {
-      return die.isHeld ? die : { ...die, value: generateRandRoll() }
-    }))
+    if(!gameWon){
+      setDice(prevDice => prevDice.map(die => {
+        return die.isHeld ? die : { ...die, value: generateRandRoll() }
+      }))
+    } else {
+      setDice(generateAllNewDice())
+    }
   }
 
   const dieComponents = dice.map(dieObj => (

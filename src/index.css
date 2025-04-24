@@ -110,8 +110,10 @@ button.roll {
   border-radius: 3.813px;
   color: #ffffff;
   border: none;
+  padding: 6px 21px;
+  white-space: nowrap;
   height: 35px;
-  width: 70px;
+  width: auto;
   font-size: 1.2rem;
 }
 

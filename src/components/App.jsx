@@ -5,17 +5,8 @@ import { nanoid } from "nanoid"
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice)
   //Determine if a game is won if all dice are held and all dice have the same value. 
-  checkGameWon()
-  function checkGameWon(){
-    const firstValue = dice[0].value
-    //First check if the all die are held
-    if (dice.filter(die => die.isHeld).length === 10){
-      //Next see if all values are equal to the first die's value. 
-      if (dice.filter(die => die.value === firstValue).length === 10){
-        console.log("game won")
-      }
-    }
-  }
+  const gameWon = dice.every(die => die.isHeld) &&
+        dice.every(die => die.value === dice[0].value)
   // generates a number 1-6 inclusive. 
   function generateRandRoll(){
     return Math.floor(Math.random() * 6) + 1
@@ -64,7 +55,9 @@ export default function App() {
           {dieComponents}
         </div>
 
-        <button className="roll" onClick={rollDice}> Roll </button>
+        <button className="roll" onClick={rollDice}> 
+          {gameWon? "New Game": "Roll"}
+        </button>
       </main>
     </>
   )

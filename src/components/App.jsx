@@ -25,7 +25,7 @@ export default function App() {
     let initDice = []
     for (let i = 0; i < 10; i++) {
       initDice.push({
-        value: 5,
+        value: generateRandRoll(),
         isHeld: false,
         id: nanoid()
       })

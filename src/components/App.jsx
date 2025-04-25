@@ -1,15 +1,20 @@
 import Die from "./Die.jsx"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 
 export default function App() {
   // Lazy Initialization 
   const [dice, setDice] = useState(() => generateAllNewDice())
-
+  const restartGameButton = useRef(null)
   //Determine if a game is won if all dice are held and all dice have the same value. 
   const gameWon = dice.every(die => die.isHeld) &&
     dice.every(die => die.value === dice[0].value)
+
+  //Automatically focus on the new game button when the game is won so user can just press enter to start new game. 
+  useEffect(()=> {
+    restartGameButton.current.focus()
+  }, [gameWon])
 
   // generates a number 1-6 inclusive. 
   function generateRandRoll() {
@@ -20,7 +25,7 @@ export default function App() {
     let initDice = []
     for (let i = 0; i < 10; i++) {
       initDice.push({
-        value: generateRandRoll(),
+        value: 5,
         isHeld: false,
         id: nanoid()
       })
@@ -66,7 +71,7 @@ export default function App() {
           {dieComponents}
         </div>
 
-        <button className="roll" onClick={rollDice}>
+        <button className="roll" onClick={rollDice} ref= {restartGameButton}>
           {gameWon ? "New Game" : "Roll"}
         </button>
       </main>

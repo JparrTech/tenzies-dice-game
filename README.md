@@ -10,6 +10,7 @@ adding confetti when the user wins.
 * Knowing useEffect is needed and when it isn't - (it can be easy to overuse it).
 * Conditional styling based on state. 
 * More use of event listeners, more mapping through arrays of objects, more practice with CSS.
+* useRef to access DOM nodes 
   
 
 https://github.com/user-attachments/assets/e128989e-6353-47d2-a140-ef171b74b06a
